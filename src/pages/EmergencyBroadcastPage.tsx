@@ -32,7 +32,9 @@ export default function EmergencyBroadcastPage() {
       hospital: 'Dhaka Medical College',
       time: '18 minutes ago',
       status: 'active',
-      responses: 8
+      responses: 8,
+      targetArea: 'All Networks',
+      scope: 24
     },
     {
       id: 2,
@@ -40,7 +42,9 @@ export default function EmergencyBroadcastPage() {
       hospital: 'Square Hospital',
       time: '2 hours ago', 
       status: 'resolved',
-      responses: 12
+      responses: 12,
+      targetArea: 'Dhaka City',
+      scope: 6
     },
     {
       id: 3,
@@ -48,7 +52,9 @@ export default function EmergencyBroadcastPage() {
       hospital: 'Apollo Hospital',
       time: '5 hours ago',
       status: 'resolved',
-      responses: 6
+      responses: 6,
+      targetArea: 'Northeast Region',
+      scope: 8
     }
   ];
 
@@ -172,6 +178,9 @@ export default function EmergencyBroadcastPage() {
                       <p className="font-medium">{broadcast.type}</p>
                       <p className="text-sm text-muted-foreground">
                         {broadcast.hospital} • {broadcast.time}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Target: {broadcast.targetArea} ({broadcast.scope} hospitals)
                       </p>
                     </div>
                   </div>
