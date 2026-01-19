@@ -20,7 +20,7 @@ const roles: { value: UserRole; label: string; description: string }[] = [
 ];
 
 const Login = () => {
-  const [email, setEmail] = useState('demo@healthsync.com');
+  const [email, setEmail] = useState('admin@hospital.local');
   const [password, setPassword] = useState('demo123');
   const [role, setRole] = useState<UserRole>('admin');
   const [isLoading, setIsLoading] = useState(false);

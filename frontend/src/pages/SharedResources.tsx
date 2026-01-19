@@ -97,13 +97,11 @@ const SharedResources = () => {
           onClose={() => setIsRequestOpen(false)}
         />
 
-        {/* Phase 2 Components */}
         <EmergencyBroadcast
           isOpen={showEmergencyBroadcast}
           onClose={() => setShowEmergencyBroadcast(false)}
           onBroadcast={(data) => {
             console.log('Emergency broadcast:', data);
-            // Handle emergency broadcast
           }}
         />
 
@@ -112,7 +110,6 @@ const SharedResources = () => {
           onClose={() => setShowGuidedRequest(false)}
           onSubmit={(data) => {
             console.log('Guided request:', data);
-            // Handle guided request submission
           }}
         />
       </div>

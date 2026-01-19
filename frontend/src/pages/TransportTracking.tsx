@@ -20,12 +20,10 @@ import {
   Navigation,
   Timer,
   Route,
-  // Refresh
 } from 'lucide-react';
 import TransportTimeline from '@/components/TransportTimeline';
 import HandoverConfirmation from '@/components/HandoverConfirmation';
 
-// Mock data - in real app this would come from API
 const activeTransports = [
   {
     id: 'TRN-2024-0001',
@@ -149,7 +147,7 @@ export default function TransportTracking() {
 
                 <Separator />
 
-                {/* Route Info */}
+
                 <div className="space-y-2">
                   <div className="flex items-start space-x-2">
                     <MapPin className="h-4 w-4 text-green-600 mt-0.5" />
@@ -169,7 +167,7 @@ export default function TransportTracking() {
 
                 <Separator />
 
-                {/* Progress */}
+
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-sm">
                     <span className="font-medium">Progress</span>
