@@ -1,0 +1,191 @@
+{
+  "nav": {
+    "dashboard": "ড্যাশবোর্ড",
+    "inventory": {
+      "label": "ইনভেন্টরি",
+      "stockList": "স্টক তালিকা",
+      "analytics": "অ্যানালিটিক্স",
+      "forecasting": "পূর্বাভাস"
+    },
+    "resourceSharing": {
+      "label": "রিসোর্স শেয়ারিং",
+      "sharedResources": "শেয়ার করা রিসোর্স",
+      "requestWorkflow": "রিকুয়েস্ট ওয়ার্কফ্লো",
+      "visibilityControl": "দৃশ্যমানতা নিয়ন্ত্রণ",
+      "requestTemplates": "রিকুয়েস্ট টেমপ্লেট"
+    },
+    "transport": {
+      "label": "পরিবহন",
+      "activeTransports": "সক্রিয় পরিবহন",
+      "emergencyBroadcast": "জরুরি সম্প্রচার"
+    },
+    "trust": {
+      "label": "বিশ্বাস ও সুনাম",
+      "hospitalProfiles": "হাসপাতালের প্রোফাইল",
+      "creditLedger": "ক্রেডিট লেজার",
+      "performanceTracking": "পারফরম্যান্স ট্র্যাকিং"
+    },
+    "communication": {
+      "label": "যোগাযোগ",
+      "alerts": "সতর্কতা",
+      "messages": "বার্তা"
+    },
+    "hospitals": "হাসপাতাল",
+    "admin": {
+      "label": "প্রশাসন",
+      "roles": "ভূমিকা ব্যবস্থাপনা",
+      "data": "ডেটা ইন্টিগ্রেশন"
+    },
+    "reports": "রিপোর্ট",
+    "logout": "লগআউট"
+  },
+  "login": {
+    "title": "হেলথশেয়ারে স্বাগতম",
+    "subtitle": "আন্তঃ-হাসপাতাল রিসোর্স ব্যবস্থাপনা সিস্টেম",
+    "email": "ইমেইল",
+    "password": "পাসওয়ার্ড",
+    "role": "ভূমিকা",
+    "signIn": "সাইন ইন",
+    "signingIn": "সাইন ইন হচ্ছে...",
+    "success": "আবার স্বাগতম!",
+    "error": "ভুল পরিচয়পত্র। আবার চেষ্টা করুন।",
+    "emailPlaceholder": "আপনার ইমেইল লিখুন",
+    "passwordPlaceholder": "আপনার পাসওয়ার্ড লিখুন",
+    "forgotPassword": "পাসওয়ার্ড ভুলে গিয়েছেন?"
+
+  },
+  "role": {
+    "admin": "প্রশাসক",
+    "admin.description": "সম্পূর্ণ সিস্টেম অ্যাক্সেস",
+    "pharmacist": "ফার্মাসিস্ট",
+    "pharmacist.description": "ইনভেন্টরি ব্যবস্থাপনা",
+    "doctor": "ডাক্তার",
+    "doctor.description": "ক্লিনিক্যাল অ্যাক্সেস",
+    "coordinator": "সমন্বয়কারী",
+    "coordinator.description": "রিসোর্স সমন্বয়",
+    "regulator": "নিয়ন্ত্রক",
+    "regulator.description": "সম্মতি তদারকি"
+  },
+  "common": {
+    "search": "অনুসন্ধান...",
+    "submit": "জমা দিন",
+    "cancel": "বাতিল",
+    "save": "সংরক্ষণ",
+    "edit": "সম্পাদনা",
+    "delete": "মুছুন",
+    "view": "দেখুন",
+    "close": "বন্ধ করুন",
+    "loading": "লোড হচ্ছে...",
+    "error": "ত্রুটি",
+    "success": "সফল",
+    "warning": "সতর্কতা",
+    "info": "তথ্য",
+    "yes": "হ্যাঁ",
+    "no": "না",
+    "confirm": "নিশ্চিত করুন",
+    "back": "পিছনে",
+    "next": "পরবর্তী",
+    "previous": "পূর্ববর্তী",
+    "refresh": "রিফ্রেশ",
+    "filter": "ফিল্টার",
+    "sort": "সাজান",
+    "export": "এক্সপোর্ট",
+    "import": "ইম্পোর্ট",
+    "download": "ডাউনলোড",
+    "upload": "আপলোড",
+    "settings": "সেটিংস",
+    "profile": "প্রোফাইল",
+    "help": "সাহায্য",
+    "about": "সম্পর্কে",
+    "contact": "যোগাযোগ",
+    "demo": "ডেমো",
+    "language": "বর্তমান ভাষা",
+    "status": "অবস্থা"
+  },
+  "status": {
+    "active": "সক্রিয়",
+    "inactive": "নিষ্ক্রিয়",
+    "pending": "অপেক্ষমাণ",
+    "approved": "অনুমোদিত",
+    "rejected": "প্রত্যাখ্যাত",
+    "completed": "সম্পন্ন",
+    "cancelled": "বাতিল",
+    "inProgress": "চলমান",
+    "inTransit": "পরিবহনে",
+    "delivered": "বিতরণ করা হয়েছে",
+    "expired": "মেয়াদ শেষ",
+    "available": "উপলব্ধ",
+    "unavailable": "অনুপলব্ধ"
+  },
+  "urgency": {
+    "routine": "নিয়মিত",
+    "urgent": "জরুরি",
+    "critical": "সংকটজনক",
+    "emergency": "জরুরি অবস্থা"
+  },
+  "resource": {
+    "blood": "রক্ত",
+    "drugs": "ওষুধ",
+    "medications": "ওষুধপত্র",
+    "organs": "অঙ্গ",
+    "equipment": "সরঞ্জাম",
+    "staff": "কর্মীবৃন্দ",
+    "beds": "শয্যা",
+    "supplies": "সরবরাহ"
+  },
+  "dashboard": {
+    "title": "ড্যাশবোর্ড",
+    "overview": "সংক্ষিপ্ত বিবরণ",
+    "recentActivity": "সাম্প্রতিক কার্যকলাপ",
+    "quickStats": "দ্রুত পরিসংখ্যান",
+    "pendingRequests": "অপেক্ষমাণ অনুরোধ",
+    "criticalAlerts": "গুরুত্বপূর্ণ সতর্কতা"
+  },
+  "inventory": {
+    "title": "ইনভেন্টরি ব্যবস্থাপনা",
+    "stockLevel": "স্টক স্তর",
+    "lowStock": "কম স্টক",
+    "outOfStock": "স্টক শেষ",
+    "expiryDate": "মেয়াদ শেষের তারিখ",
+    "batchNumber": "ব্যাচ নম্বর",
+    "supplier": "সরবরাহকারী",
+    "location": "অবস্থান",
+    "quantity": "পরিমাণ",
+    "unitPrice": "একক মূল্য",
+    "totalValue": "মোট মূল্য"
+  },
+  "validation": {
+    "required": "এই ক্ষেত্রটি প্রয়োজনীয়",
+    "email.invalid": "দয়া করে একটি বৈধ ইমেইল ঠিকানা লিখুন",
+    "password.minLength": "পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে",
+    "phone.invalid": "দয়া করে একটি বৈধ ফোন নম্বর লিখুন",
+    "number.invalid": "দয়া করে একটি বৈধ সংখ্যা লিখুন",
+    "date.invalid": "দয়া করে একটি বৈধ তারিখ লিখুন"
+  },
+  "error": {
+    "networkError": "নেটওয়ার্ক ত্রুটি। আপনার সংযোগ পরীক্ষা করুন।",
+    "serverError": "সার্ভার ত্রুটি। পরে আবার চেষ্টা করুন।",
+    "unauthorized": "আপনি এই কাজটি করার জন্য অনুমোদিত নন।",
+    "notFound": "অনুরোধিত রিসোর্স পাওয়া যায়নি।",
+    "validationFailed": "যাচাইকরণ ব্যর্থ। আপনার ইনপুট পরীক্ষা করুন।"
+  },
+  "success": {
+    "saved": "সফলভাবে সংরক্ষিত",
+    "deleted": "সফলভাবে মুছে ফেলা হয়েছে",
+    "updated": "সফলভাবে আপডেট করা হয়েছে",
+    "created": "সফলভাবে তৈরি করা হয়েছে",
+    "requestSent": "অনুরোধ সফলভাবে পাঠানো হয়েছে",
+    "requestApproved": "অনুরোধ সফলভাবে অনুমোদিত"
+  },
+  "notification": {
+    "newMessage": "আপনার একটি নতুন বার্তা আছে",
+    "requestReceived": "নতুন অনুরোধ গৃহীত",
+    "lowStock": "কম স্টক সতর্কতা",
+    "systemMaintenance": "সিস্টেম রক্ষণাবেক্ষণ নির্ধারিত"
+  },
+  "language": {
+    "english": "ইংরেজি (English)",
+    "bengali": "বাংলা",
+    "toggle": "ভাষা পরিবর্তন"
+  }
+}

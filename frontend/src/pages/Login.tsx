@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage, LanguageToggle } from '@/components/layout/LanguageToggle';
 import { UserRole } from '@/types/healthcare';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,14 +12,6 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { Activity, Shield, Lock, Mail } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-const roles: { value: UserRole; label: string; description: string }[] = [
-  { value: 'admin', label: 'Administrator', description: 'Full system access' },
-  { value: 'pharmacist', label: 'Pharmacist', description: 'Inventory management' },
-  { value: 'doctor', label: 'Doctor', description: 'Clinical access' },
-  { value: 'coordinator', label: 'Coordinator', description: 'Resource coordination' },
-  { value: 'regulator', label: 'Regulator', description: 'Compliance oversight' },
-];
-
 const Login = () => {
   const [email, setEmail] = useState('admin@hospital.local');
   const [password, setPassword] = useState('demo123');
@@ -26,8 +19,17 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   
   const { login } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  const roles: { value: UserRole; label: string; description: string }[] = [
+    { value: 'admin', label: t('role.admin'), description: t('role.admin.description') },
+    { value: 'pharmacist', label: t('role.pharmacist'), description: t('role.pharmacist.description') },
+    { value: 'doctor', label: t('role.doctor'), description: t('role.doctor.description') },
+    { value: 'coordinator', label: t('role.coordinator'), description: t('role.coordinator.description') },
+    { value: 'regulator', label: t('role.regulator'), description: t('role.regulator.description') },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,14 +42,14 @@ const Login = () => {
     
     if (success) {
       toast({
-        title: 'Welcome to HealthSync',
-        description: `Logged in as ${roles.find(r => r.value === role)?.label}`,
+        title: t('login.success'),
+        description: `${t('role.'+role)}`,
       });
       navigate('/dashboard');
     } else {
       toast({
-        title: 'Login Failed',
-        description: 'Invalid credentials. Please try again.',
+        title: t('common.error'),
+        description: t('login.error'),
         variant: 'destructive',
       });
     }
@@ -57,8 +59,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Theme Toggle - Fixed Position */}
-      <div className="fixed top-4 right-4 z-50">
+      {/* Language and Theme Toggle - Fixed Position */}
+      <div className="fixed top-4 right-4 z-50 flex gap-2">
+        <LanguageToggle />
         <ThemeToggle />
       </div>
       
@@ -71,8 +74,8 @@ const Login = () => {
               <Activity className="h-7 w-7" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">HealthSync</h1>
-              <p className="text-sm text-primary-foreground/80">Resource Management System</p>
+              <h1 className="text-2xl font-bold">{t('login.title', 'HealthSync')}</h1>
+              <p className="text-sm text-primary-foreground/80">{t('login.subtitle')}</p>
             </div>
           </div>
           
@@ -125,21 +128,21 @@ const Login = () => {
 
           <Card className="border-0 shadow-lg">
             <CardHeader className="space-y-1 pb-4">
-              <CardTitle className="text-2xl">Sign in</CardTitle>
+              <CardTitle className="text-2xl">{t('login.signIn')}</CardTitle>
               <CardDescription>
-                Enter your credentials to access the system
+                {t('login.subtitle')}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email">{t('login.email')}</Label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input
                       id="email"
                       type="email"
-                      placeholder="you@hospital.com"
+                      placeholder={t('login.emailPlaceholder')}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="pl-10"
@@ -149,13 +152,13 @@ const Login = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">{t('login.password')}</Label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                     <Input
                       id="password"
                       type="password"
-                      placeholder="••••••••"
+                      placeholder={t('login.passwordPlaceholder')}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="pl-10"
@@ -165,7 +168,7 @@ const Login = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="role">Login as (Demo)</Label>
+                  <Label htmlFor="role">{t('login.role')}</Label>
                   <Select value={role} onValueChange={(value: UserRole) => setRole(value)}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select role" />
@@ -184,12 +187,12 @@ const Login = () => {
                 </div>
 
                 <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? 'Signing in...' : 'Sign in'}
+                  {isLoading ? t('login.signingIn') : t('login.signIn')}
                 </Button>
 
                 <div className="text-center">
                   <a href="#" className="text-sm text-muted-foreground hover:text-primary">
-                    Forgot your password?
+                      {t('login.forgotPassword')}
                   </a>
                 </div>
               </form>

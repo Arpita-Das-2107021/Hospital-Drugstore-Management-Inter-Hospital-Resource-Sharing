@@ -7,75 +7,17 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Language } from '@/types/language';
+import en from '@/locales/en.json';
+import bn from '@/locales/bn.json';
 
-type Language = 'en' | 'bn';
+const translations: Record<string, any> = { en, bn };
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: string, defaultValue?: string) => string;
 }
-
-const translations: Record<Language, Record<string, string>> = {
-  en: {
-    'nav.dashboard': 'Dashboard',
-    'nav.inventory': 'Inventory',
-    'nav.sharing': 'Resource Sharing',
-    'nav.alerts': 'Alerts',
-    'nav.messages': 'Messages',
-    'nav.hospitals': 'Hospitals',
-    'nav.admin': 'Administration',
-    'nav.reports': 'Reports',
-    'common.search': 'Search...',
-    'common.submit': 'Submit',
-    'common.cancel': 'Cancel',
-    'common.save': 'Save',
-    'common.loading': 'Loading...',
-    'common.error': 'Error',
-    'common.success': 'Success',
-    'status.pending': 'Pending',
-    'status.approved': 'Approved',
-    'status.rejected': 'Rejected',
-    'status.in_transit': 'In Transit',
-    'status.delivered': 'Delivered',
-    'urgency.routine': 'Routine',
-    'urgency.urgent': 'Urgent',
-    'urgency.critical': 'Critical',
-    'resource.blood': 'Blood',
-    'resource.drugs': 'Drugs',
-    'resource.organs': 'Organs',
-    'resource.equipment': 'Equipment',
-  },
-  bn: {
-    'nav.dashboard': 'ড্যাশবোর্ড',
-    'nav.inventory': 'ইনভেন্টরি',
-    'nav.sharing': 'রিসোর্স শেয়ারিং',
-    'nav.alerts': 'সতর্কতা',
-    'nav.messages': 'বার্তা',
-    'nav.hospitals': 'হাসপাতাল',
-    'nav.admin': 'প্রশাসন',
-    'nav.reports': 'রিপোর্ট',
-    'common.search': 'অনুসন্ধান...',
-    'common.submit': 'জমা দিন',
-    'common.cancel': 'বাতিল',
-    'common.save': 'সংরক্ষণ',
-    'common.loading': 'লোড হচ্ছে...',
-    'common.error': 'ত্রুটি',
-    'common.success': 'সফল',
-    'status.pending': 'অপেক্ষমাণ',
-    'status.approved': 'অনুমোদিত',
-    'status.rejected': 'প্রত্যাখ্যাত',
-    'status.in_transit': 'পরিবহনে',
-    'status.delivered': 'বিতরণ করা হয়েছে',
-    'urgency.routine': 'নিয়মিত',
-    'urgency.urgent': 'জরুরি',
-    'urgency.critical': 'সংকটজনক',
-    'resource.blood': 'রক্ত',
-    'resource.drugs': 'ওষুধ',
-    'resource.organs': 'অঙ্গ',
-    'resource.equipment': 'সরঞ্জাম',
-  },
-};
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
@@ -90,8 +32,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem('healthshare-language', lang);
   };
 
-  const t = (key: string): string => {
-    return translations[language][key] || key;
+  const resolveKey = (obj: any, path: string) => {
+    return path.split('.').reduce((acc: any, part: string) => acc?.[part], obj);
+  };
+
+  const t = (key: string, defaultValue?: string): string => {
+    const value = resolveKey(translations[language], key);
+    return value ?? defaultValue ?? key;
   };
 
   return (
@@ -110,14 +57,14 @@ export const useLanguage = () => {
 };
 
 export const LanguageToggle = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="h-9 w-9">
           <Globe className="h-4 w-4" />
-          <span className="sr-only">Toggle language</span>
+          <span className="sr-only">{t('language.toggle')}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -126,14 +73,14 @@ export const LanguageToggle = () => {
           className={language === 'en' ? 'bg-accent' : ''}
         >
           <span className="mr-2">🇺🇸</span>
-          English
+          {t('language.english')}
         </DropdownMenuItem>
         <DropdownMenuItem 
           onClick={() => setLanguage('bn')}
           className={language === 'bn' ? 'bg-accent' : ''}
         >
           <span className="mr-2">🇧🇩</span>
-          বাংলা (Bengali)
+          {t('language.bengali')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

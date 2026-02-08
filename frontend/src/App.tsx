@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { LanguageProvider } from "@/components/layout/LanguageToggle";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
@@ -33,11 +34,12 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="system" storageKey="healthshare-theme">
-      <AuthProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
+      <LanguageProvider>
+        <AuthProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
@@ -70,8 +72,9 @@ const App = () => (
           </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+    </LanguageProvider>
+  </ThemeProvider>
+</QueryClientProvider>
 );
 
 export default App;

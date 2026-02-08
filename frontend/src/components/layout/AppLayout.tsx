@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/components/layout/LanguageToggle';
 import { useScrollRestoration } from '@/hooks/use-scroll-restoration';
 import { AppSidebar } from './AppSidebar';
+import { LanguageToggle } from './LanguageToggle';
 import { Bell, Search, MessageCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -17,6 +19,7 @@ interface AppLayoutProps {
 
 export const AppLayout = ({ children, title, subtitle }: AppLayoutProps) => {
   const { isAuthenticated } = useAuth();
+  const { t } = useLanguage();
   
   // Enable scroll restoration for all pages using this layout
   const { saveScrollPosition } = useScrollRestoration();
@@ -50,10 +53,11 @@ export const AppLayout = ({ children, title, subtitle }: AppLayoutProps) => {
             <div className="relative hidden sm:block">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="Search..."
+                placeholder={t('common.search')}
                 className="w-40 sm:w-64 pl-9"
               />
             </div>
+            <LanguageToggle />
             <ThemeToggle />
             <Button variant="ghost" size="icon" className="relative" asChild>
               <Link to="/messages">

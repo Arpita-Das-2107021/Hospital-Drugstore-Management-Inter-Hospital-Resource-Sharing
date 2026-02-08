@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/contexts/AuthContext';
+import { useLanguage } from '@/components/layout/LanguageToggle';
 import {
   LayoutDashboard,
   Package,
@@ -49,62 +50,62 @@ interface NavItem {
   children?: { title: string; href: string }[];
 }
 
-const navigation: NavItem[] = [
-  { title: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+const getNavigation = (t: (key: string) => string): NavItem[] => [
+  { title: t('nav.dashboard'), href: '/dashboard', icon: LayoutDashboard },
   {
-    title: 'Inventory',
+    title: t('nav.inventory.label'),
     icon: Package,
     children: [
-      { title: 'Stock List', href: '/inventory' },
-      { title: 'Analytics', href: '/inventory/analytics' },
-      { title: 'Forecasting', href: '/inventory/forecast' },
+      { title: t('nav.inventory.stockList'), href: '/inventory' },
+      { title: t('nav.inventory.analytics'), href: '/inventory/analytics' },
+      { title: t('nav.inventory.forecasting'), href: '/inventory/forecast' },
     ],
   },
   {
-    title: 'Resource Sharing',
+    title: t('nav.resourceSharing.label'),
     icon: Share2,
     children: [
-      { title: 'Shared Resources', href: '/sharing' },
-      { title: 'Request Workflow', href: '/sharing/requests' },
-      { title: 'Visibility Control', href: '/sharing/visibility' },
-      { title: 'Request Templates', href: '/sharing/templates' },
+      { title: t('nav.resourceSharing.sharedResources'), href: '/sharing' },
+      { title: t('nav.resourceSharing.requestWorkflow'), href: '/sharing/requests' },
+      { title: t('nav.resourceSharing.visibilityControl'), href: '/sharing/visibility' },
+      { title: t('nav.resourceSharing.requestTemplates'), href: '/sharing/templates' },
     ],
   },
   {
-    title: 'Transport & Logistics',
+    title: t('nav.transport.label'),
     icon: Truck,
     children: [
-      { title: 'Active Transports', href: '/transport/tracking' },
-      { title: 'Emergency Broadcast', href: '/transport/emergency' },
+      { title: t('nav.transport.activeTransports'), href: '/transport/tracking' },
+      { title: t('nav.transport.emergencyBroadcast'), href: '/transport/emergency' },
     ],
   },
   {
-    title: 'Trust & Reputation',
+    title: t('nav.trust.label'),
     icon: Star,
     children: [
-      { title: 'Hospital Profiles', href: '/trust/profiles' },
-      { title: 'Credit Ledger', href: '/trust/credits' },
-      { title: 'Performance Metrics', href: '/trust/performance' },
+      { title: t('nav.trust.hospitalProfiles'), href: '/trust/profiles' },
+      { title: t('nav.trust.creditLedger'), href: '/trust/credits' },
+      { title: t('nav.trust.performanceTracking'), href: '/trust/performance' },
     ],
   },
   {
-    title: 'Communication',
+    title: t('nav.communication.label'),
     icon: MessageSquare,
     badge: 3,
     children: [
-      { title: 'Alerts', href: '/alerts' },
-      { title: 'Messages', href: '/messages' },
+      { title: t('nav.communication.alerts'), href: '/alerts' },
+      { title: t('nav.communication.messages'), href: '/messages' },
     ],
   },
   {
-    title: 'Administration',
+    title: t('nav.admin.label'),
     icon: Users,
     children: [
-      { title: 'Roles & Policies', href: '/admin/roles' },
-      { title: 'Data Integration', href: '/admin/data' },
+      { title: t('nav.admin.roles'), href: '/admin/roles' },
+      { title: t('nav.admin.data'), href: '/admin/data' },
     ],
   },
-  { title: 'Reports', href: '/reports', icon: FileText },
+  { title: t('nav.reports'), href: '/reports', icon: FileText },
 ];
 
 const NavItemComponent = ({ item, onNavigate }: { item: NavItem; onNavigate?: () => void }) => {
@@ -179,6 +180,9 @@ const NavItemComponent = ({ item, onNavigate }: { item: NavItem; onNavigate?: ()
 
 const SidebarContent = ({ onNavigate }: { onNavigate?: () => void }) => {
   const { user, logout } = useAuth();
+  const { t } = useLanguage();
+  
+  const navigation = getNavigation(t);
 
   return (
     <div className="flex h-full flex-col">

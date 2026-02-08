@@ -1,0 +1,190 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "inventory": {
+      "label": "Inventory",
+      "stockList": "Stock List",
+      "analytics": "Analytics",
+      "forecasting": "Forecasting"
+    },
+    "resourceSharing": {
+      "label": "Resource Sharing",
+      "sharedResources": "Shared Resources",
+      "requestWorkflow": "Request Workflow",
+      "visibilityControl": "Visibility Control",
+      "requestTemplates": "Request Templates"
+    },
+    "transport": {
+      "label": "Transport",
+      "activeTransports": "Active Transports",
+      "emergencyBroadcast": "Emergency Broadcast"
+    },
+    "trust": {
+      "label": "Trust & Reputation",
+      "hospitalProfiles": "Hospital Profiles",
+      "creditLedger": "Credit Ledger",
+      "performanceTracking": "Performance Tracking"
+    },
+    "communication": {
+      "label": "Communication",
+      "alerts": "Alerts",
+      "messages": "Messages"
+    },
+    "hospitals": "Hospitals",
+    "admin": {
+      "label": "Administration",
+      "roles": "Role Management",
+      "data": "Data Integration"
+    },
+    "reports": "Reports",
+    "logout": "Logout"
+  },
+  "login": {
+    "title": "Welcome to HealthShare",
+    "subtitle": "Inter-Hospital Resource Management System",
+    "email": "Email",
+    "password": "Password", 
+    "role": "Role",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
+    "success": "Welcome back!",
+    "error": "Invalid credentials. Please try again.",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot your password?"
+  },
+  "role": {
+    "admin": "Administrator",
+    "admin.description": "Full system access",
+    "pharmacist": "Pharmacist",
+    "pharmacist.description": "Inventory management",
+    "doctor": "Doctor",
+    "doctor.description": "Clinical access",
+    "coordinator": "Coordinator",
+    "coordinator.description": "Resource coordination",
+    "regulator": "Regulator",
+    "regulator.description": "Compliance oversight"
+  },
+  "common": {
+    "search": "Search...",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "refresh": "Refresh",
+    "filter": "Filter",
+    "sort": "Sort",
+    "export": "Export",
+    "import": "Import",
+    "download": "Download",
+    "upload": "Upload",
+    "settings": "Settings",
+    "profile": "Profile",
+    "help": "Help",
+    "about": "About",
+    "contact": "Contact",
+    "demo": "Demo",
+    "language": "Current Language",
+    "status": "Status"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive", 
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "inProgress": "In Progress",
+    "inTransit": "In Transit",
+    "delivered": "Delivered",
+    "expired": "Expired",
+    "available": "Available",
+    "unavailable": "Unavailable"
+  },
+  "urgency": {
+    "routine": "Routine",
+    "urgent": "Urgent",
+    "critical": "Critical",
+    "emergency": "Emergency"
+  },
+  "resource": {
+    "blood": "Blood",
+    "drugs": "Drugs",
+    "medications": "Medications",
+    "organs": "Organs",
+    "equipment": "Equipment",
+    "staff": "Staff",
+    "beds": "Beds",
+    "supplies": "Supplies"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "recentActivity": "Recent Activity",
+    "quickStats": "Quick Statistics",
+    "pendingRequests": "Pending Requests",
+    "criticalAlerts": "Critical Alerts"
+  },
+  "inventory": {
+    "title": "Inventory Management",
+    "stockLevel": "Stock Level",
+    "lowStock": "Low Stock",
+    "outOfStock": "Out of Stock",
+    "expiryDate": "Expiry Date",
+    "batchNumber": "Batch Number",
+    "supplier": "Supplier",
+    "location": "Location",
+    "quantity": "Quantity",
+    "unitPrice": "Unit Price",
+    "totalValue": "Total Value"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email.invalid": "Please enter a valid email address",
+    "password.minLength": "Password must be at least 6 characters",
+    "phone.invalid": "Please enter a valid phone number",
+    "number.invalid": "Please enter a valid number",
+    "date.invalid": "Please enter a valid date"
+  },
+  "error": {
+    "networkError": "Network error. Please check your connection.",
+    "serverError": "Server error. Please try again later.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "validationFailed": "Validation failed. Please check your input."
+  },
+  "success": {
+    "saved": "Successfully saved",
+    "deleted": "Successfully deleted",
+    "updated": "Successfully updated",
+    "created": "Successfully created",
+    "requestSent": "Request sent successfully",
+    "requestApproved": "Request approved successfully"
+  },
+  "notification": {
+    "newMessage": "You have a new message",
+    "requestReceived": "New request received", 
+    "lowStock": "Low stock alert",
+    "systemMaintenance": "System maintenance scheduled"
+  },
+  "language": {
+    "english": "English",
+    "bengali": "বাংলা (Bengali)",
+    "toggle": "Toggle language"
+  }
+}

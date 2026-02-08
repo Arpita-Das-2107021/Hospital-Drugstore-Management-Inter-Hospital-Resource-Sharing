@@ -1,4 +1,5 @@
 import { AppLayout } from '@/components/layout/AppLayout';
+import { useLanguage } from '@/components/layout/LanguageToggle';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -69,9 +70,10 @@ const KPICard = ({
 
 const Dashboard = () => {
   const criticalAlerts = mockAlerts.filter(a => a.severity === 'critical' && !a.isRead);
+  const { t } = useLanguage();
 
   return (
-    <AppLayout title="Dashboard" subtitle="Healthcare Resource Management Overview">
+    <AppLayout title={t('nav.dashboard')} subtitle={t('dashboard.overview')}>
       <div className="space-y-6">
         {/* KPI Cards */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
